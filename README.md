@@ -53,8 +53,11 @@ cinemaEDA/
 ### 🔍 Analysis
 
 The project's primary objective is to identify promising investment opportunities within the film industry. By analyzing the collected data, it was possible to calculate the Return on Investment (ROI) for each genre, revealing how different genres perform in terms of generating returns relative to their production costs.
+
 ![ROI by genre](image-1.png)
+
 In addition, the project provides a broader view of the film industry. These reveal a steady increase in overall profits over the analyzed period, while production budgets appear to have stabilized.
+
 ![Profit by year](image.png)
 
 These and many other insights are explored in greater depth in the **analysis.ipynb** notebook.
