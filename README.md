@@ -17,18 +17,6 @@ The data were collected from IMDb and TMDB. Data from 2026 are included and may 
 - How do audiences respond to different types of films?
 - Which films generated the most audience engagement between 2022 and 2025?
 
-### ⚙️ Pipeline
-
-Technologies Used: python, pandas, SQL, SQLite, seaborn, matplotlib, concurrent.features/requests, API, jupyter notebook
-
-### ♻️ ETL
-
-The initial datasets were obtained from IMDb's public datasets (`https://datasets.imdbws.com/`). Specifically, the project uses `title.ratings`, `title.basics`, `title.crew`, and `name.basics`. In `extract_imdb.py`, the `title.ratings` and `title.basics` datasets are merged into `films_imdb.csv`. Some filters are applied to optimize the next extraction.. Next, `extract_tmdb.py` queries the TMDB API for every film contained in the new dataframe to retrieve financial information, such as budget and box office revenue. A `ThreadPoolExecutor` is used to perform concurrent API requests, significantly improving data collection performance.
-
-In `transform.py`, the JSON responses returned by the TMDB API are converted into `financial.csv`, which stores both the financial information and the corresponding IMDb film ID. This allows the financial data to be linked with the remaining datasets during the analysis. The file is then filtered to remove films with incomplete or unreliable financial data, and the remaining records define the set of movies used throughout the project. This filtered dataset also serves as the basis for cleaning the other dataframes, which are then processed and saved to the `data/processed` directory.
-
-The `database/` directory contains the database schema and the SQL queries used throughout the analysis. Finally, `load.py` reads the processed CSV files from `data/processed` and loads them into the database.
-
 ### 📁 Project Structure
 
 ```
@@ -49,6 +37,19 @@ cinemaEDA/
 ├── README.md
 └── requirements.txt
 ```
+### ⚒️ Tools
+
+Technologies used: python, pandas, SQL, SQLite, seaborn, matplotlib, concurrent.features/requests, API, jupyter notebook.
+
+## ⚙️ Pipeline:
+
+### ♻️ ETL
+
+The initial datasets were obtained from IMDb's public datasets (`https://datasets.imdbws.com/`). Specifically, the project uses `title.ratings`, `title.basics`, `title.crew`, and `name.basics`. In `extract_imdb.py`, the `title.ratings` and `title.basics` datasets are merged into `films_imdb.csv`. Some filters are applied to optimize the next extraction.. Next, `extract_tmdb.py` queries the TMDB API for every film contained in the new dataframe to retrieve financial information, such as budget and box office revenue. A `ThreadPoolExecutor` is used to perform concurrent API requests, significantly improving data collection performance.
+
+In `transform.py`, the JSON responses returned by the TMDB API are converted into `financial.csv`, which stores both the financial information and the corresponding IMDb film ID. This allows the financial data to be linked with the remaining datasets during the analysis. The file is then filtered to remove films with incomplete or unreliable financial data, and the remaining records define the set of movies used throughout the project. This filtered dataset also serves as the basis for cleaning the other dataframes, which are then processed and saved to the `data/processed` directory.
+
+The `database/` directory contains the database schema and the SQL queries used throughout the analysis. Finally, `load.py` reads the processed CSV files from `data/processed` and loads them into the database.
 
 ### 🔍 Analysis
 
