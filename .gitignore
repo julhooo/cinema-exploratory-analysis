@@ -1,0 +1,7 @@
+.env
+data/raw/name.basics.tsv
+data/raw/title.crew.tsv
+data/raw/title.basics.tsv
+data/raw/title.ratings.tsv
+__pycache__/
+*.pyc
