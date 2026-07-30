@@ -56,6 +56,7 @@ The project's primary objective is to identify promising investment opportunitie
 ![ROI by genre](image-1.png)
 In addition, the project provides a broader view of the film industry. These reveal a steady increase in overall profits over the analyzed period, while production budgets appear to have stabilized.
 ![Profit by year](image.png)
+
 These and many other insights are explored in greater depth in the **analysis.ipynb** notebook.
 
 ### 🚀 How to run:
