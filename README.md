@@ -1,4 +1,4 @@
-# 🎬 Analysis of post-pandemic cinema
+## 🎬 Analysis of post-pandemic cinema
 
 The period of social isolation was crucial in shaping new patterns of behavior in modern society, particularly regarding media consumption. Social media platforms have become a key component of the film industry's new landscape, it is in digital spaces where trends emerge, marketing strategies are developed, and audience engagement is shaped.
 
@@ -21,7 +21,7 @@ The data were collected from IMDb and TMDB. Data from 2026 are included and may 
 
 Technologies Used: python, pandas, SQL, SQLite, seaborn, matplotlib, concurrent.features/requests, API, jupyter notebook
 
-#### ♻️ ETL
+### ♻️ ETL
 
 The initial datasets were obtained from IMDb's public datasets (`https://datasets.imdbws.com/`). Specifically, the project uses **title.ratings**, **title.basics**, **title.crew**, and **name.basics**. In **extract_imdb.py**, the `title.ratings` and `title.basics` datasets are merged into `films_imdb.csv`. Some filters are applied to optimize the next extraction.. Next, **extract_tmdb.py** queries the TMDB API for every film contained in the new dataframe to retrieve financial information, such as budget and box office revenue. A `ThreadPoolExecutor` is used to perform concurrent API requests, significantly improving data collection performance.
 
@@ -29,7 +29,7 @@ In **transform.py**, the JSON responses returned by the TMDB API are converted i
 
 The **database/** directory contains the database schema and the SQL queries used throughout the analysis. Finally, **load.py** reads the processed CSV files from `data/processed` and loads them into the database.
 
-#### 📁 Project Structure
+### 📁 Project Structure
 
 ```
 cinemaEDA/
@@ -50,7 +50,7 @@ cinemaEDA/
 └── requirements.txt
 ```
 
-#### 🔍 Analysis
+### 🔍 Analysis
 
 The project's primary objective is to identify promising investment opportunities within the film industry. By analyzing the collected data, it was possible to calculate the Return on Investment (ROI) for each genre, revealing how different genres perform in terms of generating returns relative to their production costs.
 ![ROI by genre](image-1.png)
